@@ -1,4 +1,4 @@
-package com.timekeeper.user.command.domain;
+package com.timekeeper.user.domain;
 
 import lombok.RequiredArgsConstructor;
 

@@ -21,15 +21,15 @@ public class UserService {
 
     @Transactional
     public Long signUp(SignUpDTO signUpDTO) {
-        Optional<User> user = userRepository.findByEmail(signUpDTO.getEmail());
+        Optional<User> user = userRepository.findByEmail(signUpDTO.email());
         if (!user.isEmpty()) {
             throw new BusinessException(UserError.USER_ALREADY_EXISTS_ERROR);
         }
         User new_user = User.createUser(
-                signUpDTO.getEmail(),
-                passwordEncoder.encode(signUpDTO.getPassword()),
-                signUpDTO.getName(),
-                signUpDTO.getPosition(),
+                signUpDTO.email(),
+                passwordEncoder.encode(signUpDTO.password()),
+                signUpDTO.name(),
+                signUpDTO.position(),
                 JoinSource.EMAIL
         );
         userRepository.save(new_user);

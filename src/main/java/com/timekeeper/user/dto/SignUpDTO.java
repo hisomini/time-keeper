@@ -1,18 +1,14 @@
 package com.timekeeper.user.dto;
 
+
 import jakarta.validation.constraints.NotBlank;
-import lombok.Getter;
+import jakarta.validation.constraints.NotNull;
 
-@Getter
-public class SignUpDTO {
-
-    @NotBlank
-    private String email;
-    @NotBlank
-    private String password;
-    @NotBlank
-    private String name;
-    @NotBlank
-    private String position;
+public record SignUpDTO(
+        @NotBlank String email,
+        @NotBlank String password,
+        @NotBlank String name,
+        @NotBlank String position
+) {
 
 }

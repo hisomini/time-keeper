@@ -7,7 +7,8 @@ public record SignUpDTO(
         @NotBlank String email,
         @NotBlank String password,
         @NotBlank String name,
-        @NotBlank String position
+        @NotBlank String position,
+        @NotBlank String phoneNumber
 ) {
 
 }

@@ -1,4 +1,4 @@
-package com.timekeeper.component;
+package com.timekeeper.global.login.service;
 
 import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
@@ -9,12 +9,6 @@ public class CustomUserDetails implements UserDetails {
     private Long id;
     private String email;
     private String password;
-
-    public CustomUserDetails(Long id, String email, String password) {
-        this.id = id;
-        this.email = email;
-        this.password = password;
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -18,6 +18,16 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
+    public Optional<User> findByRefreshToken(String refreshToken) {
+        return userJpaRepository.findByRefreshToken(refreshToken);
+    }
+
+    @Override
+    public Optional<User> findBySocialId(String socialId) {
+        return userJpaRepository.findBySocialId(socialId);
+    }
+
+    @Override
     public Optional<User> findByEmail(String email) {
         return userJpaRepository.findByEmail(email);
     }

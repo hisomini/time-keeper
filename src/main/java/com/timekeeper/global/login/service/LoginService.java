@@ -1,4 +1,4 @@
-package com.timekeeper.component;
+package com.timekeeper.global.login.service;
 
 import com.timekeeper.user.domain.User;
 import com.timekeeper.user.domain.UserRepository;
@@ -11,18 +11,23 @@ import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
 @Service
-public class UserDetailServiceImpl implements UserDetailsService {
+public class LoginService implements UserDetailsService {
 
     private final UserRepository userRepository;
 
 
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+    public CustomUserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Optional<User> user = userRepository.findByEmail(email);
+        System.out.println("====loadUserByUsername=====");
+        System.out.println(user);
         if (user.isEmpty()) {
             throw new UsernameNotFoundException("존재하지 않는 사용자입니다.");
         }
-        return new CustomUserDetails(user.get().getId(), user.get().getEmail(),
-                user.get().getPassword());
+        CustomUserDetails customUserDetails = new CustomUserDetails();
+        customUserDetails.setId(user.get().getId());
+        customUserDetails.setEmail(user.get().getEmail());
+        customUserDetails.setPassword(user.get().getPassword());
+        return customUserDetails;
     }
 }

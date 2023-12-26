@@ -1,7 +1,7 @@
-package com.timekeeper.common.exception.handler;
+package com.timekeeper.global.common.exception.handler;
 
-import com.timekeeper.common.exception.error.BusinessException;
-import com.timekeeper.common.exception.error.ErrorResponse;
+import com.timekeeper.global.common.exception.error.BusinessException;
+import com.timekeeper.global.common.exception.error.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

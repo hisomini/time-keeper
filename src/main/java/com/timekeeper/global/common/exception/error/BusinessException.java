@@ -1,4 +1,4 @@
-package com.timekeeper.common.exception.error;
+package com.timekeeper.global.common.exception.error;
 
 public class BusinessException extends RuntimeException {
 

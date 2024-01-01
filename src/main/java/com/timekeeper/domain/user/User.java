@@ -1,6 +1,6 @@
-package com.timekeeper.user.domain;
+package com.timekeeper.domain.user;
 
-import com.timekeeper.global.common.domain.BaseEntity;
+import com.timekeeper.shared.common.domain.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -36,6 +36,7 @@ public class User extends BaseEntity {
     private String refreshToken;
     @NotNull
     private boolean needsProfileUpdate;
+    private String profile;
 
     @Builder
     private User(String email, String password, String name, String phoneNumber, String position,
@@ -51,16 +52,23 @@ public class User extends BaseEntity {
     }
 
 
-    public void update(String password, String name, String phoneNumber, String position) {
-        this.password = password;
+    public void update(String name, String phoneNumber, String position) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.position = position;
         this.needsProfileUpdate = false;
+
+    }
+
+    public void updatePassword(String password) {
+        this.password = password;
     }
 
     public void updateRefreshToken(String refreshToken) {
         this.refreshToken = refreshToken;
     }
 
+    public void uploadProfile(String url) {
+        this.profile = url;
+    }
 }

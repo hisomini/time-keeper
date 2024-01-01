@@ -1,6 +1,5 @@
 package com.timekeeper.global.oauth2;
 
-import com.timekeeper.user.domain.JoinSource;
 import java.util.Collection;
 import java.util.Map;
 import lombok.Getter;

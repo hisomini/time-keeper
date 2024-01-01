@@ -1,9 +1,9 @@
-package com.timekeeper.user.dto;
+package com.timekeeper.adapter.in.request;
 
 
 import jakarta.validation.constraints.NotBlank;
 
-public record SignUpDTO(
+public record SignUp(
         @NotBlank String email,
         @NotBlank String password,
         @NotBlank String name,

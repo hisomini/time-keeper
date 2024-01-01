@@ -2,12 +2,10 @@ package com.timekeeper.global.oauth2.service;
 
 import com.timekeeper.global.oauth2.CustomOauth2User;
 import com.timekeeper.global.oauth2.OAuthAttributes;
-import com.timekeeper.user.domain.User;
-import com.timekeeper.user.domain.UserRepository;
-import java.util.Collections;
+import com.timekeeper.domain.user.User;
+import com.timekeeper.domain.user.UserRepository;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserService;

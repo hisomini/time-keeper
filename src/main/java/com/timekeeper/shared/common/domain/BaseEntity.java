@@ -1,4 +1,4 @@
-package com.timekeeper.global.common.domain;
+package com.timekeeper.shared.common.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;

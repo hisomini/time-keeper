@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Logging {
 
-    @Pointcut("execution(* com.timekeeper.user.controller.UserController..*(..))")
+    @Pointcut("execution(* com.timekeeper.adapter.in.UserController..*(..))")
     public void userController() {
     }
 

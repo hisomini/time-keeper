@@ -1,10 +1,9 @@
 package com.timekeeper.global.login.service;
 
-import com.timekeeper.user.domain.User;
-import com.timekeeper.user.domain.UserRepository;
+import com.timekeeper.domain.user.User;
+import com.timekeeper.domain.user.UserRepository;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;

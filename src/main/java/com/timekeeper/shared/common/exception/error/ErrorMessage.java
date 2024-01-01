@@ -1,4 +1,4 @@
-package com.timekeeper.global.common.exception.error;
+package com.timekeeper.shared.common.exception.error;
 
 public interface ErrorMessage {
 

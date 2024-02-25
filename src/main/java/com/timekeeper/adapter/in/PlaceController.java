@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,16 +41,22 @@ public class PlaceController {
         return ResponseEntity.status(HttpStatus.OK).body("조회완료.");
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Map<String, Long>> updatePlace(@PathVariable Long id,
             @Valid @RequestBody PlaceUpdate placeUpdate) {
         Long placeId = placeService.updatePlace(id, placeUpdate);
         return ResponseEntity.status(HttpStatus.OK).body(Map.of("placeId", placeId));
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deletePlace(@PathVariable Long id) {
-        placeService.deletePlace(id);
+    @PatchMapping("/activate/{id}")
+    public ResponseEntity<String> activatePlace(@PathVariable Long id) {
+        placeService.activatePlace(id);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    @PatchMapping("/deactivate/{id}")
+    public ResponseEntity<String> deactivatePlace(@PathVariable Long id) {
+        placeService.deactivatePlace(id);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 

@@ -44,7 +44,11 @@ public class Place extends BaseEntity {
         setUpdateDate();
     }
 
-    public void delete() {
+    public void activate() {
+        setActive(true);
+    }
+
+    public void deactivate() {
         setActive(false);
     }
 }

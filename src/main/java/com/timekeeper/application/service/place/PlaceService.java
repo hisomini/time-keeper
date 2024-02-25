@@ -43,10 +43,18 @@ public class PlaceService {
         return place.getId();
     }
 
-    public Long deletePlace(Long id) {
+    public Long activatePlace(Long id) {
         Place place = placeRepository.findById(id)
                 .orElseThrow(() -> new BusinessException(PlaceError.PLACE_NOT_FOUND_ERROR));
-        place.delete();
+        place.activate();
+        placeRepository.save(place);
+        return place.getId();
+    }
+
+    public Long deactivatePlace(Long id) {
+        Place place = placeRepository.findById(id)
+                .orElseThrow(() -> new BusinessException(PlaceError.PLACE_NOT_FOUND_ERROR));
+        place.deactivate();
         placeRepository.save(place);
         return place.getId();
     }

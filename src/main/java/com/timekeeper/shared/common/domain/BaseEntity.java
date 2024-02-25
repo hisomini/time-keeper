@@ -22,11 +22,11 @@ public abstract class BaseEntity {
     @LastModifiedDate
     private LocalDateTime updateDate;
 
-    public void setActive(boolean isActive) {
+    protected void setActive(boolean isActive) {
         this.isActive = isActive;
     }
 
-    public void setUpdateDate() {
+    protected void setUpdateDate() {
         this.updateDate = LocalDateTime.now();
     }
 

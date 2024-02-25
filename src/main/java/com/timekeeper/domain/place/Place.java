@@ -37,9 +37,14 @@ public class Place extends BaseEntity {
 
     }
 
-    private void update(String name, String address, String vertices) {
+    public void update(String name, String address, String vertices) {
         this.name = name;
         this.address = address;
         this.vertices = vertices;
+        setUpdateDate();
+    }
+
+    public void delete() {
+        setActive(false);
     }
 }

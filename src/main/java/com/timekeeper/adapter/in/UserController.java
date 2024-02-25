@@ -54,7 +54,7 @@ public class UserController {
         return ResponseEntity.ok(tokens);
     }
 
-    @PutMapping
+    @PatchMapping
     public ResponseEntity<String> updateUser(
             @RequestBody UserUpdate userUpdate) {
         userService.updateUser(userUpdate);

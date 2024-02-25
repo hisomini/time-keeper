@@ -7,6 +7,8 @@ public interface PlaceRepository {
 
     Optional<Place> findByName(String name);
 
+    Optional<Place> findById(Long id);
+
     List<Place> findAll();
 
     Place save(Place place);

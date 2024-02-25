@@ -1,8 +1,11 @@
 package com.timekeeper.application.service.place;
 
 import com.timekeeper.adapter.in.request.PlaceCreate;
+import com.timekeeper.adapter.in.request.PlaceUpdate;
 import com.timekeeper.domain.place.Place;
+import com.timekeeper.domain.place.PlaceError;
 import com.timekeeper.domain.place.PlaceRepository;
+import com.timekeeper.shared.common.exception.error.BusinessException;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +30,23 @@ public class PlaceService {
                 .address(placeCreate.address())
                 .vertices(result.toString())
                 .build();
+        placeRepository.save(place);
+        return place.getId();
+    }
+
+    public Long updatePlace(Long id, PlaceUpdate placeUpdate) {
+        Place place = placeRepository.findById(id)
+                .orElseThrow(() -> new BusinessException(PlaceError.PLACE_NOT_FOUND_ERROR));
+        JSONArray vertices = new JSONArray(placeUpdate.vertices());
+        place.update(placeUpdate.name(), placeUpdate.address(), vertices.toString());
+        placeRepository.save(place);
+        return place.getId();
+    }
+
+    public Long deletePlace(Long id) {
+        Place place = placeRepository.findById(id)
+                .orElseThrow(() -> new BusinessException(PlaceError.PLACE_NOT_FOUND_ERROR));
+        place.delete();
         placeRepository.save(place);
         return place.getId();
     }

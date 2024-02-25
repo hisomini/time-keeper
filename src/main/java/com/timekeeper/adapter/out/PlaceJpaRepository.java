@@ -8,4 +8,5 @@ public interface PlaceJpaRepository extends JpaRepository<Place, Long> {
 
     Optional<Place> findByName(String name);
 
+
 }

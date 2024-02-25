@@ -19,6 +19,11 @@ public class PlaceRepositoryImpl implements PlaceRepository {
     }
 
     @Override
+    public Optional<Place> findById(Long id) {
+        return placeJpaRepository.findById(id);
+    }
+
+    @Override
     public List<Place> findAll() {
         return placeJpaRepository.findAll();
     }

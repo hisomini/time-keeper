@@ -2,12 +2,15 @@ package com.timekeeper.application.service.place;
 
 import com.timekeeper.adapter.in.request.PlaceCreate;
 import com.timekeeper.adapter.in.request.PlaceUpdate;
+import com.timekeeper.adapter.in.response.PlaceDTO;
+import com.timekeeper.adapter.in.response.PlaceListDTO;
 import com.timekeeper.domain.place.Place;
 import com.timekeeper.domain.place.PlaceError;
 import com.timekeeper.domain.place.PlaceRepository;
 import com.timekeeper.shared.common.exception.error.BusinessException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -22,6 +25,28 @@ import org.springframework.stereotype.Service;
 public class PlaceService {
 
     private final PlaceRepository placeRepository;
+
+    public List<PlaceListDTO> getAllPlaces() {
+        List<Place> places = placeRepository.findAll();
+        return places.stream()
+                .map(place -> new PlaceListDTO(place.getId(), place.getName(), place.getAddress(),
+                        place.isActive())).collect(
+                        Collectors.toList());
+    }
+
+    public PlaceDTO findPlaceById(Long id) {
+        Place place = placeRepository.findById(id)
+                .orElseThrow(() -> new BusinessException(PlaceError.PLACE_NOT_FOUND_ERROR));
+        return PlaceDTO.builder()
+                .id(place.getId())
+                .name(place.getName())
+                .address(place.getAddress())
+                .vertices(place.getVertices())
+                .createDate(place.getCreateDate())
+                .updateDate(place.getUpdateDate())
+                .isActive(place.isActive()).build();
+
+    }
 
     public Long createPlace(PlaceCreate placeCreate) {
         JSONArray result = new JSONArray(placeCreate.vertices());

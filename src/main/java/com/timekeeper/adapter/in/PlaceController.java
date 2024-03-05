@@ -2,14 +2,16 @@ package com.timekeeper.adapter.in;
 
 import com.timekeeper.adapter.in.request.PlaceCreate;
 import com.timekeeper.adapter.in.request.PlaceUpdate;
+import com.timekeeper.adapter.in.response.PlaceDTO;
+import com.timekeeper.adapter.in.response.PlaceListDTO;
 import com.timekeeper.application.service.place.PlaceService;
 import jakarta.validation.Valid;
+import java.util.List;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +29,18 @@ import org.springframework.web.bind.annotation.RestController;
 public class PlaceController {
 
     private final PlaceService placeService;
+
+    @GetMapping
+    public ResponseEntity<List<PlaceListDTO>> getAllPlaces() {
+        List<PlaceListDTO> places = placeService.getAllPlaces();
+        return ResponseEntity.status(HttpStatus.CREATED).body(places);
+    }
+    
+    @GetMapping("/{id}")
+    public ResponseEntity<PlaceDTO> findPlaceById(@PathVariable Long id) {
+        PlaceDTO place = placeService.findPlaceById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(place);
+    }
 
     @PostMapping
     public ResponseEntity<Map<String, Long>> createPlace(

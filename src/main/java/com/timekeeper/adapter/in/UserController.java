@@ -6,7 +6,7 @@ import com.timekeeper.shared.common.exception.error.BusinessException;
 import com.timekeeper.global.jwt.service.JwtService;
 import com.timekeeper.global.login.service.CustomUserDetails;
 import com.timekeeper.adapter.in.request.SignUp;
-import com.timekeeper.adapter.in.response.UserInfo;
+import com.timekeeper.adapter.in.response.UserInfoDTO;
 import com.timekeeper.domain.user.UserError;
 import com.timekeeper.application.service.user.UserService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -19,7 +19,6 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,7 +38,7 @@ public class UserController {
     }
 
     @GetMapping
-    public UserInfo getUserInfo(@AuthenticationPrincipal CustomUserDetails user) {
+    public UserInfoDTO getUserInfo(@AuthenticationPrincipal CustomUserDetails user) {
         return userService.getUserInfo(user.getId());
     }
 

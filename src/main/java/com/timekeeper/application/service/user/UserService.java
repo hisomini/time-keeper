@@ -8,7 +8,7 @@ import com.timekeeper.domain.user.JoinSource;
 import com.timekeeper.domain.user.User;
 import com.timekeeper.domain.user.UserRepository;
 import com.timekeeper.adapter.in.request.SignUp;
-import com.timekeeper.adapter.in.response.UserInfo;
+import com.timekeeper.adapter.in.response.UserInfoDTO;
 import com.timekeeper.domain.user.UserError;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -71,10 +71,10 @@ public class UserService {
     }
 
     @Transactional(readOnly = true)
-    public UserInfo getUserInfo(Long id) {
+    public UserInfoDTO getUserInfo(Long id) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new BusinessException(UserError.USER_NOT_FOUND_ERROR));
-        return new UserInfo(
+        return new UserInfoDTO(
                 user.getId(),
                 user.getEmail(),
                 user.getName(),

@@ -2,6 +2,7 @@ package com.timekeeper.global.login.service;
 
 import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class CustomUserDetails implements UserDetails {
@@ -10,9 +11,11 @@ public class CustomUserDetails implements UserDetails {
     private String email;
     private String password;
 
+    private Collection<GrantedAuthority> authorities;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return authorities;
     }
 
     @Override
@@ -63,5 +66,10 @@ public class CustomUserDetails implements UserDetails {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setAuthorities(
+            String role) {
+        this.authorities.add(new SimpleGrantedAuthority(role));
     }
 }

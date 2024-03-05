@@ -11,6 +11,7 @@ public interface PlaceRepository {
 
     List<Place> findAll();
 
+
     Place save(Place place);
 
 }

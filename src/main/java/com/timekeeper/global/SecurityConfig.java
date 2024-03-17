@@ -7,7 +7,7 @@ import com.timekeeper.global.login.filter.CustomJsonUsernamePasswordAuthenticati
 import com.timekeeper.global.login.handler.LoginFailureHandler;
 import com.timekeeper.global.login.handler.LoginSuccessHandler;
 import com.timekeeper.global.login.service.LoginService;
-import com.timekeeper.domain.user.UserRepository;
+import com.timekeeper.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -52,8 +52,7 @@ public class SecurityConfig {
                 .logout(httpSecurityLogoutConfigurer -> httpSecurityLogoutConfigurer.disable())
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests.requestMatchers(
-                                        "/users/login/**",
-                                        "/users/signup/**", "/users/refresh/**")
+                                        "/**")
                                 .permitAll()
                                 .anyRequest().authenticated()
                 ).formLogin(

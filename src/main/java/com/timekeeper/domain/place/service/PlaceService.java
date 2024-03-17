@@ -1,12 +1,12 @@
-package com.timekeeper.application.service.place;
+package com.timekeeper.domain.place.service;
 
-import com.timekeeper.adapter.in.request.PlaceCreate;
-import com.timekeeper.adapter.in.request.PlaceUpdate;
-import com.timekeeper.adapter.in.response.PlaceDTO;
-import com.timekeeper.adapter.in.response.PlaceListDTO;
 import com.timekeeper.domain.place.Place;
 import com.timekeeper.domain.place.PlaceError;
-import com.timekeeper.domain.place.PlaceRepository;
+import com.timekeeper.domain.place.dto.PlaceCreate;
+import com.timekeeper.domain.place.dto.PlaceDTO;
+import com.timekeeper.domain.place.dto.PlaceListDTO;
+import com.timekeeper.domain.place.dto.PlaceUpdate;
+import com.timekeeper.domain.place.repository.PlaceRepository;
 import com.timekeeper.shared.common.exception.error.BusinessException;
 import java.util.ArrayList;
 import java.util.List;

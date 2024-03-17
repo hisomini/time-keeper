@@ -5,7 +5,7 @@ import com.timekeeper.global.jwt.service.JwtService;
 import com.timekeeper.shared.common.exception.error.BusinessException;
 import com.timekeeper.global.login.service.CustomUserDetails;
 import com.timekeeper.domain.user.User;
-import com.timekeeper.domain.user.UserRepository;
+import com.timekeeper.domain.user.repository.UserRepository;
 import com.timekeeper.domain.user.UserError;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

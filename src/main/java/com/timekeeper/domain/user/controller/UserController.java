@@ -1,14 +1,14 @@
-package com.timekeeper.adapter.in;
+package com.timekeeper.domain.user.controller;
 
-import com.timekeeper.adapter.in.request.UserPasswordUpdate;
-import com.timekeeper.adapter.in.request.UserUpdate;
+import com.timekeeper.domain.user.dto.SignUp;
+import com.timekeeper.domain.user.UserError;
+import com.timekeeper.domain.user.dto.UserInfoDTO;
+import com.timekeeper.domain.user.dto.UserPasswordUpdate;
+import com.timekeeper.domain.user.service.UserService;
+import com.timekeeper.domain.user.dto.UserUpdate;
 import com.timekeeper.shared.common.exception.error.BusinessException;
 import com.timekeeper.global.jwt.service.JwtService;
 import com.timekeeper.global.login.service.CustomUserDetails;
-import com.timekeeper.adapter.in.request.SignUp;
-import com.timekeeper.adapter.in.response.UserInfoDTO;
-import com.timekeeper.domain.user.UserError;
-import com.timekeeper.application.service.user.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import java.util.Map;

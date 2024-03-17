@@ -1,6 +1,6 @@
 package com.timekeeper.global.jwt.service;
 
-import com.timekeeper.domain.user.UserRepository;
+import com.timekeeper.domain.user.repository.UserRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

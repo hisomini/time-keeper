@@ -1,4 +1,4 @@
-package com.timekeeper.adapter.in.response;
+package com.timekeeper.domain.place.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import java.time.LocalDateTime;

@@ -1,7 +1,6 @@
-package com.timekeeper.adapter.out;
+package com.timekeeper.domain.place.repository;
 
 import com.timekeeper.domain.place.Place;
-import com.timekeeper.domain.place.PlaceRepository;
 import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;

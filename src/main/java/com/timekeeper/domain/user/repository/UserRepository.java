@@ -1,5 +1,6 @@
-package com.timekeeper.domain.user;
+package com.timekeeper.domain.user.repository;
 
+import com.timekeeper.domain.user.User;
 import java.util.Optional;
 
 public interface UserRepository {

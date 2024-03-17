@@ -1,10 +1,10 @@
-package com.timekeeper.adapter.in;
+package com.timekeeper.domain.place.controller;
 
-import com.timekeeper.adapter.in.request.PlaceCreate;
-import com.timekeeper.adapter.in.request.PlaceUpdate;
-import com.timekeeper.adapter.in.response.PlaceDTO;
-import com.timekeeper.adapter.in.response.PlaceListDTO;
-import com.timekeeper.application.service.place.PlaceService;
+import com.timekeeper.domain.place.dto.PlaceCreate;
+import com.timekeeper.domain.place.dto.PlaceDTO;
+import com.timekeeper.domain.place.dto.PlaceListDTO;
+import com.timekeeper.domain.place.dto.PlaceUpdate;
+import com.timekeeper.domain.place.service.PlaceService;
 import jakarta.validation.Valid;
 import java.util.List;
 import java.util.Map;
@@ -35,7 +35,7 @@ public class PlaceController {
         List<PlaceListDTO> places = placeService.getAllPlaces();
         return ResponseEntity.status(HttpStatus.CREATED).body(places);
     }
-    
+
     @GetMapping("/{id}")
     public ResponseEntity<PlaceDTO> findPlaceById(@PathVariable Long id) {
         PlaceDTO place = placeService.findPlaceById(id);

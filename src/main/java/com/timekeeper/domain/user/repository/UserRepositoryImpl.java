@@ -1,7 +1,6 @@
-package com.timekeeper.adapter.out;
+package com.timekeeper.domain.user.repository;
 
 import com.timekeeper.domain.user.User;
-import com.timekeeper.domain.user.UserRepository;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;

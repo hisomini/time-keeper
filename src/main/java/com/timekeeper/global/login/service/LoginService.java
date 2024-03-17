@@ -1,7 +1,7 @@
 package com.timekeeper.global.login.service;
 
 import com.timekeeper.domain.user.User;
-import com.timekeeper.domain.user.UserRepository;
+import com.timekeeper.domain.user.repository.UserRepository;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Optional;

@@ -3,7 +3,7 @@ package com.timekeeper.global.oauth2.service;
 import com.timekeeper.global.oauth2.CustomOauth2User;
 import com.timekeeper.global.oauth2.OAuthAttributes;
 import com.timekeeper.domain.user.User;
-import com.timekeeper.domain.user.UserRepository;
+import com.timekeeper.domain.user.repository.UserRepository;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;

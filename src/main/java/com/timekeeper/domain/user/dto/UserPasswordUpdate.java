@@ -1,4 +1,4 @@
-package com.timekeeper.adapter.in.request;
+package com.timekeeper.domain.user.dto;
 
 import jakarta.validation.constraints.NotBlank;
 

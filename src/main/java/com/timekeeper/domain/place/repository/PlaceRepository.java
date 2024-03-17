@@ -1,5 +1,6 @@
-package com.timekeeper.domain.place;
+package com.timekeeper.domain.place.repository;
 
+import com.timekeeper.domain.place.Place;
 import java.util.List;
 import java.util.Optional;
 

@@ -1,4 +1,4 @@
-package com.timekeeper.adapter.out;
+package com.timekeeper.domain.place.repository;
 
 import com.timekeeper.domain.place.Place;
 import java.util.Optional;

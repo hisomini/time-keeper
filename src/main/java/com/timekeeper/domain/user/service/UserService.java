@@ -1,15 +1,15 @@
-package com.timekeeper.application.service.user;
+package com.timekeeper.domain.user.service;
 
-import com.timekeeper.adapter.in.request.UserPasswordUpdate;
-import com.timekeeper.adapter.in.request.UserUpdate;
-import com.timekeeper.shared.common.exception.error.BusinessException;
-import com.timekeeper.global.jwt.service.JwtService;
 import com.timekeeper.domain.user.JoinSource;
 import com.timekeeper.domain.user.User;
-import com.timekeeper.domain.user.UserRepository;
-import com.timekeeper.adapter.in.request.SignUp;
-import com.timekeeper.adapter.in.response.UserInfoDTO;
 import com.timekeeper.domain.user.UserError;
+import com.timekeeper.domain.user.dto.UserUpdate;
+import com.timekeeper.domain.user.dto.SignUp;
+import com.timekeeper.domain.user.dto.UserInfoDTO;
+import com.timekeeper.domain.user.dto.UserPasswordUpdate;
+import com.timekeeper.domain.user.repository.UserRepository;
+import com.timekeeper.shared.common.exception.error.BusinessException;
+import com.timekeeper.global.jwt.service.JwtService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import java.util.HashMap;

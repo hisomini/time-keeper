@@ -6,7 +6,7 @@ import com.timekeeper.global.jwt.service.JwtService;
 import com.timekeeper.global.login.service.CustomUserDetails;
 import com.timekeeper.global.login.service.LoginService;
 import com.timekeeper.domain.user.User;
-import com.timekeeper.domain.user.UserRepository;
+import com.timekeeper.domain.user.repository.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,8 +18,8 @@ import org.springframework.http.MediaType;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
+import org.springframework.util.StringUtils;
 
 @RequiredArgsConstructor
 public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
@@ -37,7 +37,7 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
         try {
             if (request.getRequestURI().equals("/users/login") || request.getRequestURI()
                     .equals("/users/refresh") || request.getRequestURI().equals("/users/signup")) {
-                filterChain.doFilter(request, response);
+
             } else if (StringUtils.hasText(accessToken) && jwtService.validateToken(accessToken)) {
                 String email = jwtService.getEmail(accessToken);
                 Optional<User> user = userRepository.findByEmail(email);
@@ -78,7 +78,7 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
 
         Authentication authentication =
                 new UsernamePasswordAuthenticationToken(userDetails, null,
-                        null);
+                        userDetails.getAuthorities());
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
     }
